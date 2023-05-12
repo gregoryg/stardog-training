@@ -1,4 +1,4 @@
-id,pid,date,time,quantity,price,cid,card,reward_account
+id,prod_id,date,time,quantity,price,cust_id,card_id,reward_account_id
 bad78090-e88e-40f5-ad75-5329445a739e,176,2019-08-08,7:45 AM,11,9722.24,206,fcc08543-ef9e-42a9-b6ac-5b913dfb7290,
 9ebf4c10-95de-4490-9614-b4dc9f1904e9,220,2019-04-19,12:35 PM,19,11941.69,18,44f8a099-74d9-4eae-a45b-4522456cb912,c3f53240-136c-4e0b-8063-6a3e32bf8b5f
 20578c3c-1b31-44d3-9e3a-edbbdade39d0,237,2021-07-02,4:48 AM,15,11397.45,257,ea40b1a1-7484-42d3-b0ad-a149b4f2b5d7,37483d4d-5758-468b-b726-eb52eb978ed5

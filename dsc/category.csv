@@ -1,4 +1,4 @@
-id,dept_name,parent,description
+id,category_name,parent_category_id,description
 1,Shoes,2,"Step up your shoe game and put your best foot forward with Shamazon's wide selection of stylish and comfortable footwear. Whether you're looking for casual sneakers, trendy boots, or elegant dress shoes, our collection has got you covered from head to toe."
 2,Clothing,,"Elevate your wardrobe with Shamazon's fashion-forward clothing collection. From chic dresses to trendy tops, cozy sweaters to comfortable activewear, we've got everything you need to express your unique style and look your best, no matter the occasion."
 3,Garden,,"Transform your outdoor space into a beautiful oasis with Shamazon's garden department. From colorful flowers to lush greenery, stylish patio furniture to durable gardening tools, we have everything you need to create your very own garden paradise and enjoy the great outdoors in style."
