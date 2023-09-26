@@ -1,0 +1,11 @@
+PREFIX : <http://api.stardog.com/>
+PREFIX company: <http://www.imdb.com/company/>
+PREFIX movies: <urn:stardog:demos:movies:>
+PREFIX name: <http://www.imdb.com/name/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX so: <http://schema.org/>
+PREFIX stardog: <tag:stardog:api:>
+PREFIX title: <http://www.imdb.com/title/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
