@@ -1,0 +1,194 @@
+# Movies database
+
+
+# Metropolis
+
+select * {
+    <http://www.imdb.com/title/tt0017136> ?p ?o .
+}
+
+# Get histograpm of ratings
+
+select ?rating (count(*) as ?count)
+from <urn:stardog:demos:movies:1.0:ml-tutorial-data>
+where {
+    ?movie movies:rating ?float
+    bind(xsd:integer(?float) as ?rating)
+}
+group by ?rating
+order by desc(?rating)
+
+# Train the prediction model
+
+# first step
+
+SELECT 
+    (spa:set(?genre) as ?genres) 
+    ?contentRating
+    ?storyline
+    ?metaCritic
+    ?rating
+    {
+        ?movie  movies:rating ?rating ;
+                so:genre ?genre ;
+                so:contentRating ?contentRating ;
+                movies:storyline ?storyline .
+
+        OPTIONAL {
+            ?movie  movies:metaCritic ?metaCritic .
+        }
+    }
+    GROUP BY ?movie ?rating ?contentRating ?storyline ?metaCritic
+
+###### The Actual Prediction
+
+prefix spa: <tag:stardog:api:analytics:>
+
+INSERT {
+    graph spa:model {
+        movies:r1 a spa:RegressionModel ;
+            spa:arguments (?genres ?contentRating ?storyline ?metaCritic) ;
+            spa:predict ?rating ;
+            spa:crossValidation 100 ;
+            spa:evaluationMetric spa:mae ;
+            spa:overwrite True .
+    }
+}
+using <urn:stardog:demos:movies:1.0:ml-tutorial-data>
+WHERE {
+    SELECT 
+    (spa:set(?genre) as ?genres) 
+    ?contentRating
+    ?storyline
+    ?metaCritic
+    ?rating
+    {
+        ?movie  movies:rating ?rating ;
+                so:genre ?genre ;
+                so:contentRating ?contentRating ;
+                movies:storyline ?storyline .
+
+        OPTIONAL {
+            ?movie  movies:metaCritic ?metaCritic .
+        }
+    }
+    GROUP BY ?movie ?rating ?contentRating ?storyline ?metaCritic
+}
+
+# Checking the model
+
+SELECT ?mean_absolute_error
+WHERE {
+    graph spa:model {
+        movies:r1 spa:evaluationScore ?mean_absolute_error
+    }
+}
+
+# A better model
+# Note that we just lost storyLine (and a good thing?)
+# spa:b Number of bits in the feature table
+# spa:l Learning rate
+# spa:l1 L1 lambda parameter
+
+
+INSERT {
+    graph spa:model {
+        movies:r2 a spa:RegressionModel ;
+                spa:parameters [
+                    spa:loss_function 'squared' ;
+                    spa:b 22 ;
+                    spa:l (0.01 0.08) ;
+                    spa:l1 (0.0000001 0.000001) ;
+                    spa:passes 2 ;
+                    spa:k true ; # create a new cache (kill old)
+                    spa:c true ; # use a cache
+                    spa:holdout_off true ;
+                ] ;
+                spa:arguments (?authors ?directors ?producers ?keywords ?contentRating ?year ?metaCritic) ;
+                spa:predict ?rating ;
+                spa:evaluation true ;
+                spa:crossValidation 100 ;
+                spa:evaluationMetric spa:mae ;
+                spa:overwrite true .
+    }
+}
+using <urn:stardog:demos:movies:1.0:ml-tutorial-data>
+WHERE {
+    SELECT         
+        (spa:set(?author) as ?authors)
+        (spa:set(?director) as ?directors)
+        (spa:set(?producer) as ?producers)
+    	(spa:set(?keyword) as ?keywords)
+        ?contentRating
+        ?year
+        ?metaCritic
+        ?rating
+    {
+        ?movie  movies:rating ?rating ;
+                so:author ?author ;
+                so:director ?director ;
+                so:keyword ?keyword ;
+                so:contentRating ?contentRating ;
+                so:copyrightYear ?year .
+
+        OPTIONAL {
+            ?movie  :productionCompany ?producer .
+        }
+        OPTIONAL {
+            ?movie  movies:metaCritic ?metaCritic .
+        }
+    }
+    GROUP BY ?movie ?contentRating ?year ?metaCritic ?rating
+}
+
+# Check again
+
+SELECT ?mean_absolute_error
+WHERE {
+    graph spa:model {
+        movies:r2 spa:evaluationScore ?mean_absolute_error
+    }
+}
+
+######################################
+# Predict the rating
+#####################################
+
+SELECT ?title ?rating ?predictedRating
+
+WHERE {
+    graph spa:model {
+        movies:r2 spa:arguments (?authors ?directors ?producers ?keywords ?contentRating ?year ?metaCritic) ;
+            spa:predict ?predictedRating .
+    }
+
+    {
+    SELECT   
+        (spa:set(?author) as ?authors)
+        (spa:set(?director) as ?directors)
+        (spa:set(?producer) as ?producers)
+        (spa:set(?keyword) as ?keywords)
+        ?contentRating
+        ?year
+        ?metaCritic
+        ?rating
+        ?title
+        {
+            graph <urn:stardog:demos:movies:1.0:ml-tutorial-data> {
+                ?movie  rdfs:label ?title ;
+                        movies:rating ?rating ;
+                        so:author ?author ;
+                        so:director ?director ;
+                        so:productionCompany ?producer ;
+                        so:keyword ?keyword ;
+                        so:contentRating ?contentRating ;
+                        so:copyrightYear ?year ;
+                        movies:metaCritic ?metaCritic .
+            }
+        }
+        GROUP BY ?movie ?contentRating ?year ?metaCritic ?rating ?title
+        ORDER BY rand()
+        LIMIT 20
+    }
+}
+

@@ -1,0 +1,1103 @@
+@prefix : <http://api.stardog.com/> .
+@prefix stardog: <tag:stardog:api:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix so: <https://schema.org/> .
+@prefix iris: <http://iris.stardog.com/> .
+
+iris:data {
+    <http://iris.com/Iris_id_1> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "1" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.1 .
+}
+
+iris:onto {
+    <http://iris.com/petalLength> rdfs:label "petalLength" ;
+      a owl:DatatypeProperty ;
+      rdfs:domain <http://iris.com/IrisId> ;
+      rdfs:range xsd:decimal .
+    <http://iris.com/sepalWidth> rdfs:label "sepalWidth" ;
+      a owl:DatatypeProperty ;
+      rdfs:domain <http://iris.com/IrisId> ;
+      rdfs:range xsd:decimal .
+    <http://iris.com/IrisId> rdfs:label "IrisId" ;
+      a owl:Class .
+    <http://iris.com/hasSpecies> rdfs:label "hasSpecies" ;
+      a owl:ObjectProperty ;
+      rdfs:domain <http://iris.com/IrisId> ;
+      rdfs:range <http://iris.com/Species> .
+}
+
+iris:data {
+    <http://iris.com/Species_setosa> rdfs:label "setosa" ;
+      a <http://iris.com/Species> .
+}
+
+iris:onto {
+    <http://iris.com/petalWidth> rdfs:label "petalWidth" ;
+      a owl:DatatypeProperty ;
+      rdfs:domain <http://iris.com/IrisId> ;
+      rdfs:range xsd:decimal .
+    <http://iris.com/sepalLength> rdfs:label "sepalLength" ;
+      a owl:DatatypeProperty ;
+      rdfs:domain <http://iris.com/IrisId> ;
+      rdfs:range xsd:decimal .
+    <http://iris.com/Species> rdfs:label "Species" ;
+      a owl:Class .
+}
+
+iris:data {
+    <http://iris.com/Iris_id_2> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "2" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_3> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "3" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.7 .
+    <http://iris.com/Iris_id_4> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "4" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.6 .
+    <http://iris.com/Iris_id_5> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.6 ;
+      rdfs:label "5" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_6> <http://iris.com/petalLength> 1.7 ;
+      <http://iris.com/sepalWidth> 3.9 ;
+      rdfs:label "6" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_7> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "7" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 4.6 .
+    <http://iris.com/Iris_id_8> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "8" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_9> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "9" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.4 .
+    <http://iris.com/Iris_id_10> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "10" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.1 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_11> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.7 ;
+      rdfs:label "11" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_12> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "12" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.8 .
+    <http://iris.com/Iris_id_13> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "13" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.1 ;
+      <http://iris.com/sepalLength> 4.8 .
+    <http://iris.com/Iris_id_14> <http://iris.com/petalLength> 1.1 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "14" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.1 ;
+      <http://iris.com/sepalLength> 4.3 .
+    <http://iris.com/Iris_id_15> <http://iris.com/petalLength> 1.2 ;
+      <http://iris.com/sepalWidth> 4.0 ;
+      rdfs:label "15" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_16> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 4.4 ;
+      rdfs:label "16" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_17> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.9 ;
+      rdfs:label "17" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_18> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "18" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_19> <http://iris.com/petalLength> 1.7 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "19" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_20> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "20" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_21> <http://iris.com/petalLength> 1.7 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "21" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_22> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.7 ;
+      rdfs:label "22" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_23> <http://iris.com/petalLength> 1.0 ;
+      <http://iris.com/sepalWidth> 3.6 ;
+      rdfs:label "23" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.6 .
+    <http://iris.com/Iris_id_24> <http://iris.com/petalLength> 1.7 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "24" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.5 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_25> <http://iris.com/petalLength> 1.9 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "25" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.8 .
+    <http://iris.com/Iris_id_26> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "26" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_27> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "27" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_28> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "28" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.2 .
+    <http://iris.com/Iris_id_29> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "29" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.2 .
+    <http://iris.com/Iris_id_30> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "30" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.7 .
+    <http://iris.com/Iris_id_31> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "31" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.8 .
+    <http://iris.com/Iris_id_32> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "32" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_33> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 4.1 ;
+      rdfs:label "33" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.1 ;
+      <http://iris.com/sepalLength> 5.2 .
+    <http://iris.com/Iris_id_34> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 4.2 ;
+      rdfs:label "34" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_35> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "35" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_36> <http://iris.com/petalLength> 1.2 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "36" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_37> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "37" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_38> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.6 ;
+      rdfs:label "38" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.1 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_39> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "39" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.4 .
+    <http://iris.com/Iris_id_40> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "40" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_41> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "41" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_42> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 2.3 ;
+      rdfs:label "42" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 4.5 .
+    <http://iris.com/Iris_id_43> <http://iris.com/petalLength> 1.3 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "43" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.4 .
+    <http://iris.com/Iris_id_44> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.5 ;
+      rdfs:label "44" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.6 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_45> <http://iris.com/petalLength> 1.9 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "45" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.4 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_46> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "46" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.3 ;
+      <http://iris.com/sepalLength> 4.8 .
+    <http://iris.com/Iris_id_47> <http://iris.com/petalLength> 1.6 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "47" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_48> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "48" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 4.6 .
+    <http://iris.com/Iris_id_49> <http://iris.com/petalLength> 1.5 ;
+      <http://iris.com/sepalWidth> 3.7 ;
+      rdfs:label "49" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.3 .
+    <http://iris.com/Iris_id_50> <http://iris.com/petalLength> 1.4 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "50" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_setosa> ;
+      <http://iris.com/petalWidth> 0.2 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_51> <http://iris.com/petalLength> 4.7 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "51" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 7.0 .
+    <http://iris.com/Species_versicolor> rdfs:label "versicolor" ;
+      a <http://iris.com/Species> .
+    <http://iris.com/Iris_id_52> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "52" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_53> <http://iris.com/petalLength> 4.9 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "53" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.9 .
+    <http://iris.com/Iris_id_54> <http://iris.com/petalLength> 4.0 ;
+      <http://iris.com/sepalWidth> 2.3 ;
+      rdfs:label "54" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_55> <http://iris.com/petalLength> 4.6 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "55" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.5 .
+    <http://iris.com/Iris_id_56> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "56" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_57> <http://iris.com/petalLength> 4.7 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "57" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.6 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_58> <http://iris.com/petalLength> 3.3 ;
+      <http://iris.com/sepalWidth> 2.4 ;
+      rdfs:label "58" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_59> <http://iris.com/petalLength> 4.6 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "59" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 6.6 .
+    <http://iris.com/Iris_id_60> <http://iris.com/petalLength> 3.9 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "60" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 5.2 .
+    <http://iris.com/Iris_id_61> <http://iris.com/petalLength> 3.5 ;
+      <http://iris.com/sepalWidth> 2.0 ;
+      rdfs:label "61" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_62> <http://iris.com/petalLength> 4.2 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "62" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 5.9 .
+    <http://iris.com/Iris_id_63> <http://iris.com/petalLength> 4.0 ;
+      <http://iris.com/sepalWidth> 2.2 ;
+      rdfs:label "63" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_64> <http://iris.com/petalLength> 4.7 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "64" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_65> <http://iris.com/petalLength> 3.6 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "65" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_66> <http://iris.com/petalLength> 4.4 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "66" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_67> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "67" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_68> <http://iris.com/petalLength> 4.1 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "68" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_69> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 2.2 ;
+      rdfs:label "69" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.2 .
+    <http://iris.com/Iris_id_70> <http://iris.com/petalLength> 3.9 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "70" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.1 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_71> <http://iris.com/petalLength> 4.8 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "71" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 5.9 .
+    <http://iris.com/Iris_id_72> <http://iris.com/petalLength> 4.0 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "72" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_73> <http://iris.com/petalLength> 4.9 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "73" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_74> <http://iris.com/petalLength> 4.7 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "74" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.2 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_75> <http://iris.com/petalLength> 4.3 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "75" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_76> <http://iris.com/petalLength> 4.4 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "76" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.6 .
+    <http://iris.com/Iris_id_77> <http://iris.com/petalLength> 4.8 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "77" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.8 .
+    <http://iris.com/Iris_id_78> <http://iris.com/petalLength> 5.0 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "78" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.7 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_79> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "79" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_80> <http://iris.com/petalLength> 3.5 ;
+      <http://iris.com/sepalWidth> 2.6 ;
+      rdfs:label "80" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_81> <http://iris.com/petalLength> 3.8 ;
+      <http://iris.com/sepalWidth> 2.4 ;
+      rdfs:label "81" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.1 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_82> <http://iris.com/petalLength> 3.7 ;
+      <http://iris.com/sepalWidth> 2.4 ;
+      rdfs:label "82" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_83> <http://iris.com/petalLength> 3.9 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "83" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.2 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_84> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "84" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.6 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_85> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "85" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 5.4 .
+    <http://iris.com/Iris_id_86> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "86" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.6 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_87> <http://iris.com/petalLength> 4.7 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "87" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_88> <http://iris.com/petalLength> 4.4 ;
+      <http://iris.com/sepalWidth> 2.3 ;
+      rdfs:label "88" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_89> <http://iris.com/petalLength> 4.1 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "89" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_90> <http://iris.com/petalLength> 4.0 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "90" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_91> <http://iris.com/petalLength> 4.4 ;
+      <http://iris.com/sepalWidth> 2.6 ;
+      rdfs:label "91" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.2 ;
+      <http://iris.com/sepalLength> 5.5 .
+    <http://iris.com/Iris_id_92> <http://iris.com/petalLength> 4.6 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "92" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_93> <http://iris.com/petalLength> 4.0 ;
+      <http://iris.com/sepalWidth> 2.6 ;
+      rdfs:label "93" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.2 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_94> <http://iris.com/petalLength> 3.3 ;
+      <http://iris.com/sepalWidth> 2.3 ;
+      rdfs:label "94" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.0 ;
+      <http://iris.com/sepalLength> 5.0 .
+    <http://iris.com/Iris_id_95> <http://iris.com/petalLength> 4.2 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "95" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_96> <http://iris.com/petalLength> 4.2 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "96" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.2 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_97> <http://iris.com/petalLength> 4.2 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "97" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_98> <http://iris.com/petalLength> 4.3 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "98" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 6.2 .
+    <http://iris.com/Iris_id_99> <http://iris.com/petalLength> 3.0 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "99" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.1 ;
+      <http://iris.com/sepalLength> 5.1 .
+    <http://iris.com/Iris_id_100> <http://iris.com/petalLength> 4.1 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "100" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_versicolor> ;
+      <http://iris.com/petalWidth> 1.3 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_101> <http://iris.com/petalLength> 6.0 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "101" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.5 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Species_virginica> rdfs:label "virginica" ;
+      a <http://iris.com/Species> .
+    <http://iris.com/Iris_id_102> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "102" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.9 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_103> <http://iris.com/petalLength> 5.9 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "103" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 7.1 .
+    <http://iris.com/Iris_id_104> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "104" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_105> <http://iris.com/petalLength> 5.8 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "105" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.2 ;
+      <http://iris.com/sepalLength> 6.5 .
+    <http://iris.com/Iris_id_106> <http://iris.com/petalLength> 6.6 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "106" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 7.6 .
+    <http://iris.com/Iris_id_107> <http://iris.com/petalLength> 4.5 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "107" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.7 ;
+      <http://iris.com/sepalLength> 4.9 .
+    <http://iris.com/Iris_id_108> <http://iris.com/petalLength> 6.3 ;
+      <http://iris.com/sepalWidth> 2.9 ;
+      rdfs:label "108" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 7.3 .
+    <http://iris.com/Iris_id_109> <http://iris.com/petalLength> 5.8 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "109" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_110> <http://iris.com/petalLength> 6.1 ;
+      <http://iris.com/sepalWidth> 3.6 ;
+      rdfs:label "110" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.5 ;
+      <http://iris.com/sepalLength> 7.2 .
+    <http://iris.com/Iris_id_111> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "111" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 6.5 .
+    <http://iris.com/Iris_id_112> <http://iris.com/petalLength> 5.3 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "112" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.9 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_113> <http://iris.com/petalLength> 5.5 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "113" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 6.8 .
+    <http://iris.com/Iris_id_114> <http://iris.com/petalLength> 5.0 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "114" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 5.7 .
+    <http://iris.com/Iris_id_115> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "115" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.4 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_116> <http://iris.com/petalLength> 5.3 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "116" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_117> <http://iris.com/petalLength> 5.5 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "117" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.5 .
+    <http://iris.com/Iris_id_118> <http://iris.com/petalLength> 6.7 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "118" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.2 ;
+      <http://iris.com/sepalLength> 7.7 .
+    <http://iris.com/Iris_id_119> <http://iris.com/petalLength> 6.9 ;
+      <http://iris.com/sepalWidth> 2.6 ;
+      rdfs:label "119" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 7.7 .
+    <http://iris.com/Iris_id_120> <http://iris.com/petalLength> 5.0 ;
+      <http://iris.com/sepalWidth> 2.2 ;
+      rdfs:label "120" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_121> <http://iris.com/petalLength> 5.7 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "121" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.9 .
+    <http://iris.com/Iris_id_122> <http://iris.com/petalLength> 4.9 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "122" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 5.6 .
+    <http://iris.com/Iris_id_123> <http://iris.com/petalLength> 6.7 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "123" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 7.7 .
+    <http://iris.com/Iris_id_124> <http://iris.com/petalLength> 4.9 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "124" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_125> <http://iris.com/petalLength> 5.7 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "125" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_126> <http://iris.com/petalLength> 6.0 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "126" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 7.2 .
+    <http://iris.com/Iris_id_127> <http://iris.com/petalLength> 4.8 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "127" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.2 .
+    <http://iris.com/Iris_id_128> <http://iris.com/petalLength> 4.9 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "128" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_129> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "129" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_130> <http://iris.com/petalLength> 5.8 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "130" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.6 ;
+      <http://iris.com/sepalLength> 7.2 .
+    <http://iris.com/Iris_id_131> <http://iris.com/petalLength> 6.1 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "131" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.9 ;
+      <http://iris.com/sepalLength> 7.4 .
+    <http://iris.com/Iris_id_132> <http://iris.com/petalLength> 6.4 ;
+      <http://iris.com/sepalWidth> 3.8 ;
+      rdfs:label "132" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 7.9 .
+    <http://iris.com/Iris_id_133> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "133" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.2 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_134> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 2.8 ;
+      rdfs:label "134" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.5 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_135> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 2.6 ;
+      rdfs:label "135" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.4 ;
+      <http://iris.com/sepalLength> 6.1 .
+    <http://iris.com/Iris_id_136> <http://iris.com/petalLength> 6.1 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "136" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 7.7 .
+    <http://iris.com/Iris_id_137> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "137" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.4 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_138> <http://iris.com/petalLength> 5.5 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "138" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.4 .
+    <http://iris.com/Iris_id_139> <http://iris.com/petalLength> 4.8 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "139" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 6.0 .
+    <http://iris.com/Iris_id_140> <http://iris.com/petalLength> 5.4 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "140" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.1 ;
+      <http://iris.com/sepalLength> 6.9 .
+    <http://iris.com/Iris_id_141> <http://iris.com/petalLength> 5.6 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "141" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.4 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_142> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 3.1 ;
+      rdfs:label "142" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.9 .
+    <http://iris.com/Iris_id_143> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 2.7 ;
+      rdfs:label "143" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.9 ;
+      <http://iris.com/sepalLength> 5.8 .
+    <http://iris.com/Iris_id_144> <http://iris.com/petalLength> 5.9 ;
+      <http://iris.com/sepalWidth> 3.2 ;
+      rdfs:label "144" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.8 .
+    <http://iris.com/Iris_id_145> <http://iris.com/petalLength> 5.7 ;
+      <http://iris.com/sepalWidth> 3.3 ;
+      rdfs:label "145" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.5 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_146> <http://iris.com/petalLength> 5.2 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "146" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.7 .
+    <http://iris.com/Iris_id_147> <http://iris.com/petalLength> 5.0 ;
+      <http://iris.com/sepalWidth> 2.5 ;
+      rdfs:label "147" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.9 ;
+      <http://iris.com/sepalLength> 6.3 .
+    <http://iris.com/Iris_id_148> <http://iris.com/petalLength> 5.2 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "148" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.0 ;
+      <http://iris.com/sepalLength> 6.5 .
+    <http://iris.com/Iris_id_149> <http://iris.com/petalLength> 5.4 ;
+      <http://iris.com/sepalWidth> 3.4 ;
+      rdfs:label "149" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 2.3 ;
+      <http://iris.com/sepalLength> 6.2 .
+    <http://iris.com/Iris_id_150> <http://iris.com/petalLength> 5.1 ;
+      <http://iris.com/sepalWidth> 3.0 ;
+      rdfs:label "150" ;
+      a <http://iris.com/IrisId> ;
+      <http://iris.com/hasSpecies> <http://iris.com/Species_virginica> ;
+      <http://iris.com/petalWidth> 1.8 ;
+      <http://iris.com/sepalLength> 5.9 .
+}
