@@ -272,7 +272,7 @@ select ?kevinBacon ?co_actor {
     ?kevin ^so:actor/so:actor ?actor .
     ?actor rdfs:label ?co_actor .
     ?kevin rdfs:label ?kevinBacon .
-    filter (?kevin != ?co_actor)
+    filter (?kevinBacon != ?co_actor)
 }
 
 # Get actors that are connected to Kevin Bacon by any number of movies
