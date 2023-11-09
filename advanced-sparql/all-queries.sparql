@@ -1,0 +1,361 @@
+# Scripts for Advanced Sparql training
+# queries work in the movies (IMDB) database
+prefix fts: <tag:stardog:api:search:>
+prefix sqs: <tag:stardog:api:sqs:>
+prefix stardog: <tag:stardog:api:>
+
+# Q1
+select * {
+    {
+    ?type a rdfs:Class .
+    } union {
+        ?type a owl:Class .
+    }
+}
+
+# Q2
+# Movies starring Kevin Bacon by year
+select ?movie_name ?year {
+    ?person a so:Person ;
+        rdfs:label "Kevin Bacon" .
+    ?person ^so:actor ?movie .
+    ?movie rdfs:label ?movie_name ;
+           so:copyrightYear ?year .
+}
+order by ?year
+
+# Q3
+select ?name {
+    ?kevin a so:Person ;
+        rdfs:label "Kevin Bacon" .
+    ?movie so:actor ?kevin ;
+           so:actor ?actor .
+    ?actor rdfs:label ?name .
+    filter (?kevin != ?actor )
+
+}
+order by ?name
+
+# Q4
+select (count(?name) as ?n) {
+    ?kevin a so:Person ;
+        rdfs:label "Kevin Bacon" .
+    ?kevin (^so:actor/so:actor)+ ?actor .
+    ?actor rdfs:label ?name .
+    filter (?kevin != ?actor )
+
+}
+
+#Q5
+select (count(distinct(?person)) as ?n) {
+   ?person a so:Person .
+}
+
+# Alias
+INSERT DATA {
+        GRAPH <tag:stardog:api:graph:aliases> {
+                <urn:stardog:tutorials:paths:kevin> <tag:stardog:api:graph:alias> <urn:stardog:tutorials:paths:1.0:paths-tutorial-data>,
+                <urn:stardog:tutorials:paths:1.0:paths-tutorial-model> .
+        }
+}
+
+
+# Using function contains
+select * {
+    ?s rdfs:label ?label ;
+       a ?type .
+    filter(contains(?label, "Bacon"))
+}
+
+
+# Full text search examples
+
+SELECT * {
+    values ?query { "Kevin Bacon"}
+    service fts:textMatch {
+        [] fts:result ?result ;
+        fts:query ?query ;
+        fts:score ?scoreRaw ;
+        fts:explanation ?e ;
+        fts:limit 10 .
+    }
+}
+
+
+SELECT * {
+
+    values ?query { "Kevin OR Bacon^2"}
+    service fts:textMatch {
+        [] fts:result ?result ;
+           fts:query ?query ;
+           fts:score ?scoreRaw ;
+           fts:explanation ?e ;
+           fts:limit 10 .
+    }
+}
+
+# Check out how search works with named graph
+# If running in Studio, deselect context
+SELECT * {
+    graph ?g {
+# FTS pulls in text labels from all over the database
+# Use a query to filter the results
+        ?s ?text ?result ;
+        a ?type .
+        # a so:Movie .
+
+        values ?query { "bacon"}
+        service fts:textMatch {
+            [] fts:result ?result ;
+            fts:query ?query ;
+            fts:score ?scoreRaw ;
+            fts:explanation ?e ;
+            fts:limit 5 .
+        }
+    }
+}
+
+
+
+SELECT * {
+# Let's limit the scope of the query in the properties file
+    ?s
+       ?textLabel ?result ;
+       # so:hasMovieTitle ?result .
+       # a ?type .
+       a so:Movie .
+
+    values ?query { "bacon"}
+    service fts:textMatch {
+        [] fts:result ?result ;
+           fts:query ?query ;
+           fts:score ?scoreRaw ;
+           fts:explanation ?e ;
+           .
+    }
+}
+order by desc(?scoreRaw)
+
+# Stored query examples
+
+# Get the 3 most recent movies for a specific actor (Kevin Bacon)
+
+select ?movieTitle ?year  {
+    # values ?actor { imdb-name:nm0000102 }
+    VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?movie so:actor ?actor  ;
+        rdfs:label ?movieTitle ;
+        so:copyrightYear ?year .
+}
+order by desc(?year)
+limit 3
+
+# A nested query
+# This is a bad query.
+# Kevin Bacon did not appear in the movie "Before the Flood", so something went wrong here.
+# ?actor in the inner brace is not bound by the value in the outer brace.
+
+select * {
+    # values ?actor { imdb-name:nm0000102 } # Kevin Bacon
+     VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?actor a so:Person ;
+        rdfs:label ?actorName .
+
+    {
+        select ?movieTitle ?year  {
+
+        ?movie so:actor ?actor  ;
+            rdfs:label ?movieTitle ;
+            so:copyrightYear ?year .
+        }
+        order by desc(?year)
+        limit 3
+    }
+}
+
+# This works. By placing ?actor in the second select clause, the value is matched into the nested subquery.
+
+select * where {
+     VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?actor a so:Person ;
+        rdfs:label ?actorName .
+
+    {
+        select ?actor ?movieTitle ?year where {
+
+        ?movie so:actor ?actor  ;
+            rdfs:label ?movieTitle ;
+            so:copyrightYear ?year .
+    }
+    order by desc(?year)
+    limit 3
+    }
+}
+order by desc(?year)
+
+# Let's unbind ?actor and see if I can get the most recent 3
+# This did not accomplish what I wanted, which was to produce the most recent movies for every actor in the outer brace.
+# The interior clause is evaluated first, and the values of the ?actor variables bind ?actor in the outer clause
+
+select * {
+# ?actor is unbound, so in theory, this should go through every actor in the DB
+    ?actor a so:Person ;
+        rdfs:label ?actorName .
+
+    {
+        select ?actor ?movieTitle ?year  {
+
+        ?movie so:actor ?actor  ;
+            rdfs:label ?movieTitle ;
+            so:copyrightYear ?year .
+    }
+    order by desc(?year)
+    limit 3
+    }
+}
+
+
+##Stored query recent_3
+#
+select ?actor ?movieTitle ?year ?movie {
+    ?movie so:actor ?actor  ;
+        rdfs:label ?movieTitle ;
+        so:copyrightYear ?year .
+}
+order by desc(?year)
+limit 3
+
+
+## Invoking the stored query
+# Note that I don't pull out all of the variables from the stored query. ?movie is not returned.
+# Note the commas in the [] pattern. That's because sqs:vars is a property common to them all.
+# This doesn't actually do what I wanted. ?actor in the outer loop matches ?actor in the stored query, so we only get 3 results totally.
+
+select * {
+    SERVICE <query://recent_3> {
+        # blank node coming up
+        [] sqs:vars ?actor,
+                    ?movieTitle,
+                    ?year .
+    }
+    ?actor rdfs:label ?actorName .
+}
+
+# A correlated subquery
+# I can feed the values of the actor to the stored query using sqs:inputs
+# I get the most recent 3 movies (if applicable) for actors with "Sheen" in their names
+
+select ?actorName ?movieTitle ?year {
+    SERVICE <query://recent_3> {
+        []
+            sqs:inputs ?actor ;
+            sqs:vars ?movieTitle, ?year .
+    }
+    ?actor a so:Person ;
+        rdfs:label ?actorName .
+    filter(contains(?actorName, "Sheen"))
+}
+order by ?actorName desc(?year)
+
+# PATH queries
+# Get the IRI for Kevin Bacon
+
+select * {
+    ?kevin rdfs:label "Kevin Bacon" .
+}
+
+## Leading up to PATH queries
+# Let's start by tracking from Kevin Bacon to other actors and/or directors
+# Get actors that starred with Kevin Bacon
+select ?kevinBacon ?co_actor {
+    VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?kevin ^so:actor/so:actor ?actor .
+    ?actor rdfs:label ?co_actor .
+    ?kevin rdfs:label ?kevinBacon .
+    filter (?kevin != ?co_actor)
+}
+
+# Get actors that are connected to Kevin Bacon by any number of movies
+select DISTINCT ?kevinBacon {
+    VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?kevin (^so:actor/so:actor)+ ?actor .
+    ?actor rdfs:label ?co_actor .
+    ?kevin rdfs:label ?kevinBacon .
+    filter (?kevin != ?co_actor)
+}
+
+# Number of actors who are connected
+# Some of these may be connected by more than 6 degrees
+select (count(*) as ?n) {
+    VALUES ?actor {<http://www.imdb.com/name/nm0000102>}
+    ?kevin (^so:actor/so:actor)+ ?actor .
+    ?actor rdfs:label ?co_actor .
+    ?kevin rdfs:label ?kevinBacon .
+    filter (?kevin != ?co_actor)
+}
+
+# The PATH query
+# To get the path to a particular co-star (or more distant actor)
+PATHS
+    START ?x {?x rdfs:label "Kevin Bacon"}
+    END ?y {?y rdfs:label "Jennifer Jason Leigh"}
+VIA {
+    ?movie a so:Movie ;
+           rdfs:label ?title .
+    ?movie so:actor ?x .
+    ?movie so:actor ?y .
+
+    ?x rdfs:label ?xName .
+    ?y rdfs:label ?yName .
+
+#} LIMIT 1 # To get just one shortest path
+}
+
+# The PATH query
+# To get the path to a particular co-star (or more distant actor)
+PATHS
+    START ?x {?x rdfs:label "Kevin Bacon"}
+    END ?y {?y rdfs:label "James Ponsoldt"}
+VIA {
+    ?movie a so:Movie ;
+           rdfs:label ?title .
+    ?movie so:actor|so:director ?x .
+    ?movie so:actor|so:director ?y .
+
+    ?x rdfs:label ?xName .
+    ?y rdfs:label ?yName .
+
+} LIMIT 1
+
+# The 6 degrees
+# Uses a stored query
+
+select (count(?actorName) as ?n) {
+    select ?actorName (stardog:length(?path) as ?degrees) {
+        ?x a so:Person ;
+            rdfs:label "Kevin Bacon" .
+        ?y a so:Person ;
+        rdfs:label ?actorName .
+        SERVICE <query://degrees> {
+            [] sqs:vars ?path ;
+            sqs:var:x ?start ;
+            sqs:inputs ?y .
+        }
+        filter(stardog:length(?path) < 7)
+    }
+}
+
+# Here is the stored query
+PATHS
+    START ?x {?x rdfs:label "Kevin Bacon"}
+    END ?y
+VIA {
+    ?movie a so:Movie ;
+           rdfs:label ?title .
+    ?movie so:actor|so:director ?x .
+    ?movie so:actor|so:director ?y .
+
+    ?x rdfs:label ?xName .
+    ?y rdfs:label ?yName .
+
+} LIMIT 1
